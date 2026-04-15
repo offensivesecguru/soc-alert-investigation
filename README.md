@@ -1,5 +1,11 @@
 # soc-alert-investigation
 
+## Investigation Summary
+
+A series of failed SSH login attempts were detected on a Linux system. Analysis of authentication logs revealed repeated login failures originating from a single IP address (::1). The pattern and frequency of attempts indicate brute force behavior.
+
+This activity was generated in a controlled lab environment to simulate a real-world attack scenario.
+
 ## Objective
 Investigate suspicious login activity using log analysis
 
@@ -55,3 +61,13 @@ Technique: Brute Force (T1110)
 ```bash
 sudo journalctl -u ssh | grep "Failed"
 sudo journalctl -u ssh | grep "Failed" | awk '{print $11}' | sort | uniq -c | sort -nr
+
+
+---
+
+## 5. Add a “Conclusion” (this matters a lot)
+
+```markdown
+## Conclusion
+
+The observed activity is consistent with a brute force attack attempt. Although the attack was simulated, the methodology reflects real-world behavior seen in unauthorized access attempts. Proper monitoring and defensive controls are required to mitigate this risk.
