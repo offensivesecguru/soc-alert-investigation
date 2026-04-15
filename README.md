@@ -33,4 +33,25 @@ Unauthorized access if attacker succeeds
 - Enable MFA
 - Monitor logs
 
+## Findings
+Multiple failed login attempts were detected from the IP address ::1.
 
+## Analysis
+The repeated authentication failures within a short time period indicate brute force behavior. In this case, the activity was generated locally to simulate an attack.
+
+## Risk
+If successful, an attacker could gain unauthorized access to the system.
+
+## Recommendation
+- Implement account lockout after failed login attempts
+- Enable multi-factor authentication
+- Monitor authentication logs for repeated failures
+
+## MITRE ATTACK Mapping
+Technique: Brute Force (T1110)
+
+## Commands Used
+
+```bash
+sudo journalctl -u ssh | grep "Failed"
+sudo journalctl -u ssh | grep "Failed" | awk '{print $11}' | sort | uniq -c | sort -nr
