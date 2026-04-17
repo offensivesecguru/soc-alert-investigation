@@ -35,20 +35,6 @@ Repeated failed login attempts from a single IP indicate brute force behavior
 Unauthorized access if attacker succeeds
 
 ## Recommendation
-- Lock accounts after failed attempts
-- Enable MFA
-- Monitor logs
-
-## Findings
-Multiple failed login attempts were detected from the IP address ::1.
-
-## Analysis
-The repeated authentication failures within a short time period indicate brute force behavior. In this case, the activity was generated locally to simulate an attack.
-
-## Risk
-If successful, an attacker could gain unauthorized access to the system.
-
-## Recommendation
 - Implement account lockout after failed login attempts
 - Enable multi-factor authentication
 - Monitor authentication logs for repeated failures
